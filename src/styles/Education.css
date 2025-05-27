@@ -1,0 +1,380 @@
+/* Enhanced Education Timeline Styles */
+.education {
+  padding: var(--spacing-xxl) 0;
+  background: linear-gradient(135deg, 
+    #667eea 0%, 
+    #764ba2 25%, 
+    #f093fb 50%, 
+    #f5576c 75%, 
+    #4facfe 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background gradient */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.education:hover {
+  animation-duration: 4s; /* Speed up gradient on hover */
+}
+
+.education-timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 60px;
+  z-index: 1;
+}
+
+/* Enhanced timeline line with gradient and glow */
+.education-timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 25px;
+  width: 4px;
+  background: linear-gradient(to bottom, 
+    #ff6b6b, 
+    #4ecdc4, 
+    #45b7d1, 
+    #96ceb4, 
+    #ffeaa7);
+  border-radius: 2px;
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
+  animation: timelinePulse 3s ease-in-out infinite;
+}
+
+@keyframes timelinePulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
+    transform: scaleY(1);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.6);
+    transform: scaleY(1.02);
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--spacing-xl);
+  animation: fadeInUp 0.8s ease both;
+}
+
+.timeline-item:nth-child(even) {
+  animation: fadeInRight 0.8s ease both;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Enhanced timeline icons with multiple gradients */
+.timeline-icon {
+  position: absolute;
+  left: -60px;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #F4CCE9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 
+    0 8px 25px rgba(102, 126, 234, 0.4),
+    inset 0 2px 10px rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.timeline-item:nth-child(2n) .timeline-icon {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  box-shadow: 
+    0 8px 25px rgba(240, 147, 251, 0.4),
+    inset 0 2px 10px rgba(255, 255, 255, 0.2);
+}
+
+.timeline-item:nth-child(3n) .timeline-icon {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  box-shadow: 
+    0 8px 25px rgba(79, 172, 254, 0.4),
+    inset 0 2px 10px rgba(255, 255, 255, 0.2);
+}
+
+.timeline-icon:hover {
+  transform: scale(1.2) rotate(360deg);
+  box-shadow: 
+    0 15px 35px rgba(102, 126, 234, 0.6),
+    inset 0 2px 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Glassmorphism content cards */
+.timeline-content {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: var(--spacing-lg);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Content card shimmer effect */
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  border-radius: 22px;
+  z-index: -1;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.timeline-content:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+/* Enhanced date badges */
+.timeline-date {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+  color: #667eea;
+  border-radius: 25px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.timeline-date:hover {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.25), rgba(118, 75, 162, 0.25));
+  transform: scale(1.05);
+}
+
+/* Typography enhancements */
+.timeline-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: var(--spacing-xs);
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-institution {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: #34495e;
+  margin-bottom: var(--spacing-md);
+  position: relative;
+}
+
+.timeline-institution::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}
+
+.timeline-content:hover .timeline-institution::after {
+  width: 100px;
+}
+
+/* Change the color of CGPA and percentage */
+.timeline-CGPA {
+  color: #210F37; /* Change the color of CGPA to a bright yellow */
+  margin-bottom: var(--spacing-md);
+  line-height: 1.7;
+  font-size: var(--font-size-md);
+}
+
+.timeline-percentage {
+  color: #210F37; /* Change the color of percentage to a bright yellow */
+  margin-bottom: var(--spacing-md);
+  line-height: 1.7;
+  font-size: var(--font-size-md);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .education-timeline {
+    padding-left: 50px;
+  }
+  
+  .education-timeline::before {
+    left: 20px;
+  }
+  
+  .timeline-icon {
+    left: -50px;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .timeline-content {
+    padding: var(--spacing-md);
+    border-radius: 15px;
+  }
+  
+  .timeline-title {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .education {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  .education-timeline {
+    padding-left: 40px;
+  }
+  
+  .education-timeline::before {
+    left: 15px;
+    width: 3px;
+  }
+  
+  .timeline-icon {
+    left: -40px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Dark Mode Enhancements */
+.education.dark-mode {
+  background: linear-gradient(135deg, 
+    #2c3e50 0%, 
+    #4a5568 25%, 
+    #667eea 50%, 
+    #764ba2 75%, 
+    #1a202c 100%);
+  background-size: 400% 400%;
+}
+
+.education.dark-mode .timeline-content {
+  background: rgba(45, 55, 72, 0.9);
+  color: #f7fafc;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.education.dark-mode .timeline-title {
+  color: #f7fafc;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.education.dark-mode .timeline-institution,
+.education.dark-mode .timeline-CGPA,
+.education.dark-mode .timeline-percentage {
+  color: #e2e8f0; /* Change to a lighter color for dark mode */
+}
+
+/* Enhanced Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Staggered animation delays */
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+.timeline-item:nth-child(5) { animation-delay: 0.5s; }
+
+/* Scroll-triggered animations */
+@media (prefers-reduced-motion: no-preference) {
+  .timeline-item {
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+  
+  .timeline-item.animate {
+    animation-name: fadeInUp;
+  }
+  
+  .timeline-item:nth-child(even).animate {
+    animation-name: fadeInRight;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .timeline-content {
+    border: 2px solid #000;
+    background: #fff;
+  }
+  
+  .education.dark-mode .timeline-content {
+    border: 2px solid #fff;
+    background: #000;
+  }
+}
+
+
+.grade-black {
+  color: black !important;
+}
